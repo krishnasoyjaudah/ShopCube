@@ -1,0 +1,7 @@
+.pos-item {
+    color: #0e0e0e;
+}
+.pos-item:hover {
+    color: #000000;
+    text-decoration: none;
+}

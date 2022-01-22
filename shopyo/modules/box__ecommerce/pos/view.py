@@ -43,7 +43,8 @@ module_blueprint = globals()["{}_blueprint".format(module_info["module_name"])]
 def index():
     context = {}
     categories = Category.query.all()
-    context.update({"categories": categories})
+    products = Product.query.all()
+    context.update({"categories": categories, "products": products,})
     return render_template("pos/index.html", **context)
 
 
@@ -56,7 +57,7 @@ def transaction():
             prod_id = key
             number_items = json[key]["count"]
             product = Product.query.get(prod_id)
-            product.in_stock -= number_items
+            product.in_stock =- number_items
 
             product.update()
 
